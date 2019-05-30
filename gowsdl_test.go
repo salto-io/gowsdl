@@ -53,7 +53,7 @@ func TestComplexTypeWithInlineSimpleType(t *testing.T) {
 	expected := `type GetInfo struct {
 	XMLName	xml.Name	` + "`" + `xml:"http://www.mnb.hu/webservices/ GetInfo"` + "`" + `
 
-	Id	string	` + "`" + `xml:"Id,omitempty"` + "`" + `
+	Id	string	` + "`" + `xml:"Id,omitempty" cty:"id"` + "`" + `
 }`
 	if actual != expected {
 		t.Error("got " + actual + " want " + expected)
@@ -80,10 +80,10 @@ func TestAttributeRef(t *testing.T) {
 	Status	[]struct {
 		Value	string
 
-		Code	string	` + "`" + `xml:"code,attr,omitempty"` + "`" + `
-	}	` + "`" + `xml:"status,omitempty"` + "`" + `
+		Code	string	` + "`" + `xml:"code,attr,omitempty" cty:"code"` + "`" + `
+	}	` + "`" + `xml:"status,omitempty" cty:"status"` + "`" + `
 
-	ResponseCode	string	` + "`" + `xml:"responseCode,attr,omitempty"` + "`" + `
+	ResponseCode	string	` + "`" + `xml:"responseCode,attr,omitempty" cty:"response_code"` + "`" + `
 }`
 	if actual != expected {
 		t.Error("got " + actual + " want " + expected)

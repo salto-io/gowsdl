@@ -22,6 +22,8 @@ import (
 	"text/template"
 	"time"
 	"unicode"
+
+	"github.com/iancoleman/strcase"
 )
 
 const maxRecursion uint8 = 20
@@ -266,6 +268,7 @@ func (g *GoWSDL) genTypes() ([]byte, error) {
 		"goString":              goString,
 		"findNameByType":        g.findNameByType,
 		"removePointerFromType": removePointerFromType,
+		"toSnakeCase":           strcase.ToSnake,
 	}
 
 	data := new(bytes.Buffer)
